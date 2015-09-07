@@ -27,7 +27,7 @@ def do_scan():
             path = '/data/dists/{}/main/binary-{}'.format(dist, arch)
             if not os.path.exists(path):
                 os.makedirs(path)
-            cmd = 'cd {0} && dpkg-scanpackages . | gzip -9c > {0}/Packages.gz'.format(path)
+            cmd = 'dpkg-scanpackages . | gzip -9c > {0}/Packages.gz'.format(path)
             sp.check_call(cmd, shell=True, close_fds=True)
     info('Scanning...done')
 
